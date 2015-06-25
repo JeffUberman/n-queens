@@ -48,3 +48,12 @@ window.countNQueensSolutions = function(n) {
   console.log('Number of solutions for ' + n + ' queens:', solutionCount);
   return solutionCount;
 };
+
+window.countNQueensBitwise = function(n){
+  var solutionCount = 0;
+
+  console.log('Bitwise: Number of solutions for ' + n + ' queens:', solutionCount);
+  return solutionCount;
+};
+
+
