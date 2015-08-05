@@ -101,12 +101,33 @@
     // --------------------------------------------------------------
     //
     // test if a specific column on this board contains a conflict
+    getColumn: function(colIndex) {
+      var n = this.get('n');
+      var columnArray = [];
+
+      for (var rowIndex=0; rowIndex < n; rowIndex++) {
+        columnArray.push(this.get(rowIndex)[colIndex]);
+      }
+
+      return columnArray;
+    },
+
     hasColConflictAt: function(colIndex) {
+      columnArray = this.getColumn(colIndex);
+
+      var counter = columnArray.reduce(function(accumulator, square) { return accumulator + square});
+
+      if (counter > 1) return true;
       return false; // fixme
     },
 
     // test if any columns on this board contain conflicts
     hasAnyColConflicts: function() {
+      var n = this.get('n');
+
+      for (var colIndex = 0; colIndex < n; colIndex++) {
+        if (this.hasColConflictAt(colIndex)) return true;
+      }
       return false; // fixme
     },
 
