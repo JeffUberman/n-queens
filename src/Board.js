@@ -143,7 +143,7 @@
       var colIndex = majorDiagonalColumnIndexAtFirstRow;
 
       for (var rowIndex = 0; rowIndex < n; rowIndex++) {
-        if (colIndex >= 0) {
+        if (colIndex >= 0 && colIndex < n) {
           majorDiagonalArray.push(this.get(rowIndex)[colIndex]);
         }
         colIndex++;
@@ -185,7 +185,7 @@
       var colIndex = minorDiagonalColumnIndexAtFirstRow;
 
       for (var rowIndex = 0; rowIndex < n; rowIndex++) {
-        if (colIndex <= n-1) {
+        if (colIndex < n && colIndex >= 0) {
           minorDiagonalArray.push(this.get(rowIndex)[colIndex]);
         }
         colIndex--;
@@ -207,8 +207,9 @@
     hasAnyMinorDiagonalConflicts: function() {
       var n = this.get('n');
       var diagonalIndex = n + (n-2);
+      debugger;
 
-      for (diagonalIndex; diagonalIndex > n; diagonalIndex--) {
+      for (diagonalIndex; diagonalIndex > 0; diagonalIndex--) {
         if (this.hasMinorDiagonalConflictAt(diagonalIndex)) return true;
       }
       return false; // fixme
