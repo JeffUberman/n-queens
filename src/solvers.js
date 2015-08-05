@@ -75,8 +75,12 @@ window.findNQueensSolution = function(n) {
   var result = [];
   debugger;
 
-  if (n === 2 || n === 3) {
-    return ;
+  if (n === 2) {
+    return [[0,0],[0,0]];
+  }
+
+  if (n === 3) {
+    return [[0,0,0],[0,0,0],[0,0,0]];
   }
 
   var recurse = function(board, rowIndex) {
