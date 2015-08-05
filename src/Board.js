@@ -207,7 +207,6 @@
     hasAnyMinorDiagonalConflicts: function() {
       var n = this.get('n');
       var diagonalIndex = n + (n-2);
-      debugger;
 
       for (diagonalIndex; diagonalIndex > 0; diagonalIndex--) {
         if (this.hasMinorDiagonalConflictAt(diagonalIndex)) return true;
